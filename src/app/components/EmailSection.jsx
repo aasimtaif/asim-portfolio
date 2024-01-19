@@ -4,41 +4,36 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-
+import axios from 'axios'
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [emailSubmitted, setEmailSubmitted] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+    try {
+      const data = {
+        service_id: 'service_rj9ul25',
+        template_id: 'template_n6wk01b',
+        user_id: 'l-4PWdku_PpuyKOKL',
+        template_params: {
+          name: "Asim Taif",
+          from_email: e.target.email.value,
+          subject: e.target.subject.value,
+          message: e.target.message.value,
+        }
+      };
+      const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
+      console.log(response)
+      if (response.status === 200) {
+        console.log("Message sent.");
+        setEmailSubmitted({ message: "Email sent successfully!", color: 'green' });
+      }
+    } catch (err) {
+      setEmailSubmitted({ message: "Error Sending Email!!", color: 'red' });
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
     }
   };
-
+console.log(emailSubmitted?.color)
   return (
     <section
       id="contact"
@@ -56,18 +51,18 @@ const EmailSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/aasimtaif">
+          <Link href="https://github.com/aasimtaif" target="_blank">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="https://www.linkedin.com/in/aasimtaif">
+          <Link href="https://www.linkedin.com/in/aasimtaif" target="_blank">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
       </div>
       <div>
         {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+          <p className={`text-${emailSubmitted?.color}-500 text-sm mt-2`}>
+            {emailSubmitted.message}
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
