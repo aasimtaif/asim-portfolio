@@ -34,6 +34,15 @@ const projectsData = [
   },
   {
     id: 4,
+    title: "Secret Sharing web App",
+    description: "A full satck web application where u can generate a link for ur secret and share it.The link will be valid for your desired time and number of time u want someone to access it and after that it will be deleted.",
+    image: "/images/projects/6.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/aasimtaif/secrets_sharing",
+    previewUrl: "https://secrets-keeper.vercel.app/",
+  },
+  {
+    id: 5,
     title: "Lift Simulation",
     description: "",
     image: "/images/projects/4.jpg",
