@@ -26,14 +26,32 @@ const projectsData = [
   {
     id: 3,
     title: "E-commerce Application",
-    description: "Front End E-commerce Application",
+    description: "Full-stack E-commerce Application including payment gateway integration",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/aasimtaif/Ineuron-InternShip",
+    previewUrl: "https://ecommerce-ineuron-intern-ship-nph1m9goi-aasimtaifs-projects.vercel.app/",
   },
   {
     id: 4,
+    title: "DashBoard of Ecommrerce Application ",
+    description: " Built an admin dashboard for a comprehensive product, user, category, and order management (CRUD operations: Create, Read, Update Delete)",
+    image: "/images/projects/4.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/aasimtaif/Ineuron-InternShip/",
+    previewUrl: "https://ineuron-intern-ship.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Lift Simulation",
+    description: "",
+    image: "/images/projects/5.jpg",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/aasimtaif/Lift-Simulation",
+    previewUrl: "https://64e22f6ec3249774dd2bab16--benevolent-syrniki-c3580b.netlify.app/",
+  },
+  {
+    id: 6,
     title: "Secret Sharing web App",
     description: "A full satck web application where u can generate a link for ur secret and share it.The link will be valid for your desired time and number of time u want someone to access it and after that it will be deleted.",
     image: "/images/projects/6.png",
@@ -41,15 +59,7 @@ const projectsData = [
     gitUrl: "https://github.com/aasimtaif/secrets_sharing",
     previewUrl: "https://secrets-keeper.vercel.app/",
   },
-  {
-    id: 5,
-    title: "Lift Simulation",
-    description: "",
-    image: "/images/projects/4.jpg",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/aasimtaif/Lift-Simulation",
-    previewUrl: "https://64e22f6ec3249774dd2bab16--benevolent-syrniki-c3580b.netlify.app/",
-  },
+
 ];
 
 const ProjectsSection = () => {
