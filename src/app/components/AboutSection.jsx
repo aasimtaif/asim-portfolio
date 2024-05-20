@@ -12,14 +12,19 @@ const TAB_DATA = [
         <li>Node.js</li>
         <li>Express</li>
         <li>MongoDB</li>
+        <li>FireBase</li>
+        <li>MySQL</li>
+        <li>Redux</li>
+        <li>Git</li>
+        <li>Next.js</li>
+        <li>postgresql</li>
         <li>Prisma</li>
         <li>JavaScript</li>
         <li>React</li>
         <li>HTML</li>
         <li>Css</li>
         <li>Scss</li>
-
-
+        <li>tailwindcss</li>
       </ul>
     ),
   },
