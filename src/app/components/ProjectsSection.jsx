@@ -30,7 +30,7 @@ const projectsData = [
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/aasimtaif/Ineuron-InternShip",
-    previewUrl: "https://ecommerce-ineuron-intern-ship-nph1m9goi-aasimtaifs-projects.vercel.app/",
+    previewUrl: "https://ineuron-intern-ship-swart.vercel.app/",
   },
   {
     id: 4,
