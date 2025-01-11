@@ -6,25 +6,29 @@ import TabButton from "./TabButton";
 const TAB_DATA = [
   {
     title: "Skills",
-    id: "skills",
+    id: "skills", 
     content: (
-      <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>MongoDB</li>
-        <li>FireBase</li>
-        <li>MySQL</li>
-        <li>Redux</li>
-        <li>Git</li>
-        <li>Next.js</li>
-        <li>postgresql</li>
-        <li>Prisma</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>HTML</li>
-        <li>Css</li>
-        <li>Scss</li>
-        <li>tailwindcss</li>
+      <ul className="list-none pl-2 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <li className="before:content-['+'] before:mr-2 cursor-default">Next.js</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">React</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">TypeScript</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">JavaScript</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Redux</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Capacitor.js</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">FireBase</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Node.js</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Express</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">GraphQL</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Prisma</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">MySQL</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">postgresql</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">MongoDB</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">AWS</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">HTML</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Css</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">tailwindcss</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Scss</li>
+        <li className="before:content-['+'] before:mr-2 cursor-default">Git</li>
       </ul>
     ),
   },
@@ -32,19 +36,19 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-disc pl-2">
-        <li>B.Tech in Information Technology Shri Guru Gobind Singhji Institute of Engineering and Technology  </li>
-        <li>The Complete 2024 Web Development Bootcamp</li>
+      <ul className="list-none pl-2">
+        <li className="before:content-['•'] before:mr-2 cursor-default">B.Tech in Information Technology Shri Guru Gobind Singhji Institute of Engineering and Technology  </li>
+        <li className="before:content-['•'] before:mr-2 cursor-default">The Complete 2024 Web Development Bootcamp</li>
       </ul>
     ),
   },
   {
-    title: "Certifications",
+    title: "Certifications", 
     id: "certifications",
     content: (
-      <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
+      <ul className="list-none pl-2">
+        <li className=" before:mr-2 cursor-default">AWS Cloud Practitioner</li>
+        <li className=" before:mr-2 cursor-default">Google Professional Cloud Developer</li>
       </ul>
     ),
   },
