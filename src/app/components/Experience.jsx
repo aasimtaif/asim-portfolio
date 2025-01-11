@@ -4,7 +4,19 @@ import React, { useState } from 'react'
 const experiences = [
   {
     position: "Full‐stack Web Developer Intern",
-    company: "Company Name",
+    company: "BurdenOff Consultancy Services",
+    date: "Nov 2024 - present",
+    stack: ["Node.js", "React", "Docker", "TypeScript", "GraphQL", "Capacitor", "PostgreSQL"],
+    shortInfo: `
+      Developed an online paper-checking system used in multiple South Indian universities, initially as a web app and later converted to Android and iOS using Capacitor. Added features like freehand drawing, zoom, and a question list panel for better user experience.
+    `,
+    summary: `
+    I developed a comprehensive online paper-checking system that is currently being used in multiple universities in South India. The system, initially built as a web application, was later converted into Android and iOS apps using Capacitor.js. The core functionality includes displaying the question paper and answer key side-by-side, utilizing pdf-js and react-pdf for rendering PDFs. Students can view the checked paper, zoom in/out, and interact with the document by drawing freehand, marking mistakes, or adding annotations like circles, squares, and X marks. The system also includes a question list panel similar to online competitive exams, where invigilators can assign marks, remarks, and step marks to each question. I worked extensively with technologies such as Node.js, React, Docker, TypeScript, GraphQL, PostgreSQL, and Capacitor to ensure seamless integration and high performance. I also contributed to improving the UI of multiple projects, enhancing the overall user experience across platforms.
+    `
+  },
+  {
+    position: "Full‐stack Web Developer Intern",
+    company: "BurdenOff Consultancy Services",
     date: "Aug - Nov 2024 ",
     stack: ["Node.js", "React", "Docker", "TypeScript", "GraphQL", "Capacitor", "PostgreSQL"],
     shortInfo: `
@@ -50,7 +62,8 @@ const Experience = () => {
                 onClick={() => openModal(experience)}
                 className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 border-2 border-purple-500 col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-800/40 hover:to-indigo-800/40 group-hover:scale-105 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
-                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position} {experience.company ? "at " + experience.company : ""}</h3>
+                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position}</h3>
+                {experience.company && <p className="text-indigo-300 text-sm mb-1">{experience.company}</p>}
                 <p className="text-indigo-300 font-semibold mb-2 text-sm">{experience.date}</p>
                 <p className="leading-tight text-justify text-white/90 font-medium text-sm">
                   {experience.shortInfo}
@@ -81,7 +94,8 @@ const Experience = () => {
                 onClick={() => openModal(experience)}
                 className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 border-2 border-purple-500 col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-800/40 hover:to-indigo-800/40 group-hover:scale-105 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
-                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position} at {experience.company}</h3>
+                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position}</h3>
+                {experience.company && <p className="text-indigo-300 text-sm mb-1">{experience.company}</p>}
                 <p className="text-indigo-300 font-semibold mb-2 text-sm">{experience.date}</p>
                 <p className="leading-tight text-justify text-white/90 font-medium text-sm">
                   {experience.shortInfo}
@@ -103,9 +117,10 @@ const Experience = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <h2 className="text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">
-              {selectedExperience.position} at {selectedExperience.company}
+            <h2 className="text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">
+              {selectedExperience.position}
             </h2>
+            <p className="text-indigo-300 text-sm mb-2">{selectedExperience.company}</p>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {selectedExperience.stack.map((tech, index) => (
                 <span key={index} className="px-2 py-0.5 text-[12px] font-bold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500">
