@@ -1,5 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
@@ -45,6 +46,8 @@ I am a Full Stack Developer with experience in building cross-platform applicati
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const openModal = (experience) => {
     setSelectedExperience(experience);
@@ -55,7 +58,13 @@ const Experience = () => {
   };
 
   return (
-    <div className="container">
+    <motion.div 
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.8 }}
+      className="container"
+    >
       <h2 className="text-3xl font-semibold mb-8 text-gray-900 dark:text-white text-center cursor-default  w-fit mx-auto">Experience</h2>
       <div className="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50 pt-20">
         {experiences.map((experience, i) => (
@@ -136,7 +145,7 @@ const Experience = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
