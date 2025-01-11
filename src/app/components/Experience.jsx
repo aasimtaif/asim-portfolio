@@ -1,54 +1,123 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 
 const experiences = [
   {
-    position: "Software Engineer",
+    position: "Full‐stack Web Developer Intern",
     company: "Company Name",
-    date: "2020 - Present",
-    details: "Description of your role and key achievements"
+    date: "Aug - Nov 2024 ",
+    stack: ["Node.js", "React", "Docker", "TypeScript", "GraphQL", "Capacitor", "PostgreSQL"],
+    shortInfo: `
+      Developed an online paper-checking system used in multiple South Indian universities, initially as a web app and later converted to Android and iOS using Capacitor. Added features like freehand drawing, zoom, and a question list panel for better user experience.
+    `,
+    summary: `
+    I developed a comprehensive online paper-checking system that is currently being used in multiple universities in South India. The system, initially built as a web application, was later converted into Android and iOS apps using Capacitor.js. The core functionality includes displaying the question paper and answer key side-by-side, utilizing pdf-js and react-pdf for rendering PDFs. Students can view the checked paper, zoom in/out, and interact with the document by drawing freehand, marking mistakes, or adding annotations like circles, squares, and X marks. The system also includes a question list panel similar to online competitive exams, where invigilators can assign marks, remarks, and step marks to each question. I worked extensively with technologies such as Node.js, React, Docker, TypeScript, GraphQL, PostgreSQL, and Capacitor to ensure seamless integration and high performance. I also contributed to improving the UI of multiple projects, enhancing the overall user experience across platforms.
+    `
   },
   {
-    position: "Frontend Developer", 
-    company: "Previous Company",
-    date: "2018 - 2020",
-    details: "Description of your role and key achievements"
+    position: "Full‐stack Web Developer Internship",
+    date: "2024",
+    stack: ["Node.js", "MongoDB", "TailwindCSS", "React-components", "React", "Redux", "Express"],
+    shortInfo: `
+   Developed a full-featured e-commerce website with secure user login, product browsing, shopping cart, Cashfree payment integration, and an admin dashboard for CRUD operations during a certification-based internship.
+    `,
+    summary: `
+    During a certification-based internship, I was assigned the task of developing a full-featured e-commerce application. The project involved building a secure and responsive platform using a tech stack that included Node.js, MongoDB, TailwindCSS, React components, React-Redux, and Express. The primary goal was to create an interactive and user-friendly e-commerce website that provided seamless browsing and shopping experiences. I implemented secure user login and product browsing features, as well as integrated a shopping cart functionality for a smooth checkout process. Additionally, I integrated Cashfree payment gateway to facilitate secure online transactions. The application also included a comprehensive admin dashboard, allowing for efficient CRUD operations to manage products, users, and orders. The project was a great learning experience, enhancing my skills in full-stack development and providing hands-on experience in implementing essential features required for a modern e-commerce platform.
+    `
   },
-  {
-    position: "Web Developer",
-    company: "First Company", 
-    date: "2016 - 2018",
-    details: "Description of your role and key achievements"
-  }
+
 ];
 
 const Experience = () => {
+  const [selectedExperience, setSelectedExperience] = useState(null);
+
+  const openModal = (experience) => {
+    setSelectedExperience(experience);
+  };
+
+  const closeModal = () => {
+    setSelectedExperience(null);
+  };
+
   return (
-    <div className="flex flex-col items-center w-full">
-      
-      <h2 className="text-3xl font-semibold mb-8 text-gray-900 dark:text-white pb-20">Experience</h2>
-      <ol className="relative border-s border-gray-200 dark:border-gray-700 max-w-2xl left-0">
-        {experiences.map((exp, index) => (
-          <li key={index} className="mb-16 ms-6">
-            <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-              <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-              </svg>
-            </span>
-            <div className={`md:${index % 2 === 0 ? 'ml-8' : '-ml-[calc(100%+3rem)]'} ml-8`}>
-              <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                {exp.position}
-              </h3>
-              <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {exp.date}
-              </time>
-              <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-                {exp.details}
-              </p>
+    <div className="container">
+      <h2 className="text-3xl font-semibold mb-8 text-gray-900 dark:text-white text-center cursor-default  w-fit mx-auto">Experience</h2>
+      <div className="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50 pt-20">
+        {experiences.map((experience, index) => (
+          index % 2 != 0 ? (
+            <div key={index} className="flex flex-row-reverse md:contents group">
+              <div
+                onClick={() => openModal(experience)}
+                className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 border-2 border-purple-500 col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-800/40 hover:to-indigo-800/40 group-hover:scale-105 hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position} {experience.company ? "at " + experience.company : ""}</h3>
+                <p className="text-indigo-300 font-semibold mb-2 text-sm">{experience.date}</p>
+                <p className="leading-tight text-justify text-white/90 font-medium text-sm">
+                  {experience.shortInfo}
+                </p>
+              </div>
+              <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
+                <div className="h-full w-8 flex items-center justify-center">
+                  <div className="h-full w-1 bg-gradient-to-r from-purple-400 to-indigo-400 pointer-events-none"></div>
+                </div>
+                <div
+                  onClick={() => openModal(experience)}
+                  className="w-8 h-8 absolute top-1/2 -mt-4 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400 shadow-lg shadow-purple-500/50 group-hover:scale-125 hover:scale-125 transition-all duration-300 cursor-pointer"
+                ></div>
+              </div>
             </div>
-          </li>
+          ) : (
+            <div key={index} className="flex md:contents group">
+              <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative">
+                <div className="h-full w-8 flex items-center justify-center">
+                  <div className="h-full w-1 bg-gradient-to-r from-purple-400 to-indigo-400 pointer-events-none"></div>
+                </div>
+                <div
+                  onClick={() => openModal(experience)}
+                  className="w-8 h-8 absolute top-1/2 -mt-4 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400 shadow-lg shadow-purple-500/50 group-hover:scale-125 hover:scale-125 transition-all duration-300 cursor-pointer"
+                ></div>
+              </div>
+              <div
+                onClick={() => openModal(experience)}
+                className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 border-2 border-purple-500 col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-800/40 hover:to-indigo-800/40 group-hover:scale-105 hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                <h3 className="font-bold text-base mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">{experience.position} at {experience.company}</h3>
+                <p className="text-indigo-300 font-semibold mb-2 text-sm">{experience.date}</p>
+                <p className="leading-tight text-justify text-white/90 font-medium text-sm">
+                  {experience.shortInfo}
+                </p>
+              </div>
+            </div>
+          )
         ))}
-      </ol>
+      </div>
+
+      {selectedExperience && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50" onClick={closeModal}>
+          <div className="relative bg-gradient-to-r from-purple-900/90 to-indigo-900/90 border-2 border-purple-500 p-8 rounded-xl max-w-2xl w-full mx-4 backdrop-blur-sm" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-red-400 hover:text-red-700 transition-colors duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 className="text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 font-poppins">
+              {selectedExperience.position} at {selectedExperience.company}
+            </h2>
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {selectedExperience.stack.map((tech, index) => (
+                <span key={index} className="px-2 py-0.5 text-[12px] font-bold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <p className="text-indigo-300 font-semibold mb-4 text-sm">{selectedExperience.date}</p>
+            <p className="text-white/90 mb-6 text-sm leading-relaxed font-medium">{selectedExperience.summary}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
